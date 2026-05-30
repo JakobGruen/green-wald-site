@@ -7,6 +7,7 @@ Dark theme, emerald + sky + navy palette. Privacy-first (no cookies/tracking/thi
 - `npm run dev` (localhost:4321) · `npm run build` → `dist/` · `npm run preview`
 - Node 20 + **npm** (pnpm needs Node 22 — don't use it here).
 - Redeploy live: `npm run build` (the running `green-wald-site` container directory-mounts `dist/`, so it updates with no restart). nginx.conf change → `docker restart green-wald-site`. Full ops/rollback: `RESUME-DEPLOY.md`.
+- ⚠️ **Never `rm -rf dist`** — Docker pins the bind-mount to the directory's inode, so deleting + recreating `dist/` orphans the mount and the site 403s. `astro build` already overwrites in place; if you ever do delete it, recover with `docker restart green-wald-site`.
 
 ## Where things live
 - **All copy**: `src/i18n/en.ts` + `de.ts`, typed by `types.ts` (missing key = compile error → no DE/EN drift). Legal = `legal.ts` (German-authoritative). SEO/JSON-LD = `seo.ts`. Locale + prefilled-mailto helpers = `utils.ts`.
@@ -29,6 +30,7 @@ Dark theme, emerald + sky + navy palette. Privacy-first (no cookies/tracking/thi
 - 3 deployment countries (UAE, Saudi Arabia, Germany) — NOT Switzerland. Papers: 1 published + 2 in prep.
 - No published price. CTA = "Request project"/"Projekt anfragen" with prefilled `mailto` — email only, no forms/booking.
 - **No recency framing** (don't spotlight how recently Jakob started; don't hedge it either).
+- **Handover over retainer.** Default model = build → complete docs → train the client/their IT to own and maintain it. Service tier 3 = "Handover & Enablement". A retainer is opt-in only ("available on request", "never the default") — never a headline service.
 
 ## State & repo
 Live + Playwright-verified. Git remote: **`github.com/JakobGruen/green-wald-site` — PUBLIC**, default branch `main` (SSH). Not yet in Coolify (manual container; repo is Dockerfile-ready).

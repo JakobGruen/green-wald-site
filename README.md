@@ -54,4 +54,6 @@ CSP**, HSTS, no third-party requests. Full ops + rollback in `RESUME-DEPLOY.md`.
 ## Status
 
 Live on green-wald.de, Playwright-verified (0 console errors, mobile nav, bilingual).
-Repo has **no git commits yet** and is not yet adopted into Coolify (manual container).
+Source is public at [github.com/JakobGruen/green-wald-site](https://github.com/JakobGruen/green-wald-site)
+(branch `main`). Served by a manual `nginx:alpine` container; not yet adopted into Coolify
+(the `Dockerfile` is ready for it).
