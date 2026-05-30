@@ -30,5 +30,7 @@ Dark theme, emerald + sky + navy palette. Privacy-first (no cookies/tracking/thi
 - No published price. CTA = "Request project"/"Projekt anfragen" with prefilled `mailto` — email only, no forms/booking.
 - **No recency framing** (don't spotlight how recently Jakob started; don't hedge it either).
 
-## State
-Live + Playwright-verified. **No git commits yet** (Jakob's rule: don't commit/PR without explicit ask). Not yet in Coolify (manual container; repo is Dockerfile-ready).
+## State & repo
+Live + Playwright-verified. Git remote: **`github.com/JakobGruen/green-wald-site` — PUBLIC**, default branch `main` (SSH). Not yet in Coolify (manual container; repo is Dockerfile-ready).
+
+⚠️ **This repo is PUBLIC.** Before committing: never add secrets, tokens, or the internal day-rate (`.review/` is gitignored — keep it that way). The Impressum address + VAT in `src/i18n/legal.ts` are intentionally public (§5 DDG, already on the live site). Anything you'd not put on the live site does not belong in a commit. Commit/PR only when Jakob explicitly asks (his standing rule); prefer new commits over amending pushed history.
