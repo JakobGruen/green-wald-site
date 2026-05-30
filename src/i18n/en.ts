@@ -63,17 +63,17 @@ export const en: Content = {
           'A working system in production with the safety net to change it confidently — and no vendor lock-in.',
       },
       {
-        name: 'Advisory & Retainer',
+        name: 'Handover & Enablement',
         forWho:
-          'Teams who have shipped and need ongoing engineering, evals and architecture guidance — or a reliable hand for the hard parts.',
+          'Teams who want to own what gets built — with their own developers or IT able to run, maintain and extend it, instead of depending on one outside person.',
         deliverables: [
-          'Ongoing development, code review and architecture input',
-          'Eval and monitoring setup that keeps model behaviour measurable over time',
-          'Priority access for fixes, iterations and new features',
+          'Complete documentation — architecture, runbooks, and the reasoning behind the design',
+          'Hands-on training for your developers or IT to run, debug and extend the system themselves',
+          'Eval and monitoring setup so model behaviour stays measurable after I step back',
         ],
-        engagement: 'Monthly retainer, capacity agreed in advance',
+        engagement: 'Built into every project — ongoing advisory available on request',
         outcome:
-          'A senior AI engineer on call, with continuity across your roadmap instead of one-off handoffs.',
+          'Your team owns the system and can maintain it without me — with the option to keep a senior hand on call if you want one.',
       },
     ],
   },
@@ -105,7 +105,7 @@ export const en: Content = {
       {
         title: 'You own all code and IP',
         detail:
-          'You own the code — documented, free of lock-in, running on your infrastructure with no dependency on me to keep it alive.',
+          'You own the code — documented and handed over, free of lock-in, on your own infrastructure. I would rather train your team to run and extend it than leave you a black box only I can touch.',
       },
       {
         title: 'AI ships with evals, not vibes',
@@ -135,9 +135,9 @@ export const en: Content = {
           'A production AI feature or MVP shipped with tests, evals and CI — a full-stack AI product, agentic web app, RAG system, or a voice or chat agent in real use.',
       },
       {
-        duration: 'Ongoing retainer',
+        duration: 'Handover, then optional support',
         outcome:
-          'Continuous development, evals and architecture support across your roadmap, at an agreed monthly capacity.',
+          'Every build ends with complete docs and training, so your team owns and maintains it. A senior hand stays available afterwards if you want one — never the default.',
       },
     ],
     note:
@@ -182,6 +182,14 @@ export const en: Content = {
         body:
           'An open-source fork with ~480 commits over roughly seven months. I built a full voice layer from scratch on LiveKit/Pipecat, redesigned the permission UX, and set up CI/CD from zero. React Native/Expo on the front, Fastify and Python behind.',
         link: 'https://github.com/JakobGruen/happy',
+        linkLabel: 'View on GitHub →',
+      },
+      {
+        title: 'green-wald.de',
+        sub: 'Open-source · This very site',
+        body:
+          'This very site: a bilingual, privacy-first static build on Astro 5 — no cookies, no analytics, no third-party requests, self-hosted fonts. Hardened with a strict Content-Security-Policy, a typed EN/DE content layer that keeps the two languages from drifting, and accessible progressive enhancement throughout. Open source, end to end.',
+        link: 'https://github.com/JakobGruen/green-wald-site',
         linkLabel: 'View on GitHub →',
       },
       {

@@ -63,17 +63,17 @@ export const de: Content = {
           'Ein laufendes System in Produktion — mit dem Sicherheitsnetz, es selbstbewusst zu verändern, und ohne Vendor-Lock-in.',
       },
       {
-        name: 'Advisory & Retainer',
+        name: 'Übergabe & Befähigung',
         forWho:
-          'Teams, die bereits ausgeliefert haben und laufendes Engineering, Evals und Architektur-Beratung brauchen — oder eine verlässliche Hand für die schwierigen Teile.',
+          'Teams, die besitzen wollen, was gebaut wird — mit eigenen Entwicklern oder einer IT, die das System betreiben, warten und erweitern können, statt von einer einzelnen externen Person abzuhängen.',
         deliverables: [
-          'Laufende Entwicklung, Code-Review und Architektur-Input',
-          'Eval- und Monitoring-Setup, das das Modellverhalten über die Zeit messbar hält',
-          'Bevorzugter Zugang für Fixes, Iterationen und neue Features',
+          'Vollständige Dokumentation — Architektur, Runbooks und die Überlegungen hinter dem Design',
+          'Praxisnahe Schulung für Ihre Entwickler oder IT, um das System selbst zu betreiben, zu debuggen und zu erweitern',
+          'Eval- und Monitoring-Setup, damit das Modellverhalten messbar bleibt, nachdem ich mich zurückziehe',
         ],
-        engagement: 'Monatlicher Retainer, Kapazität vorab vereinbart',
+        engagement: 'Teil jedes Projekts — laufende Beratung auf Wunsch',
         outcome:
-          'Ein Senior AI Engineer auf Abruf — mit Kontinuität über Ihre Roadmap statt einmaliger Übergaben.',
+          'Ihr Team besitzt das System und kann es ohne mich warten — mit der Option, bei Bedarf eine erfahrene Hand auf Abruf zu behalten.',
       },
     ],
   },
@@ -105,7 +105,7 @@ export const de: Content = {
       {
         title: 'Code und IP gehören Ihnen',
         detail:
-          'Der Code gehört Ihnen — dokumentiert, frei von Lock-in, auf Ihrer Infrastruktur lauffähig, ohne Abhängigkeit von mir.',
+          'Der Code gehört Ihnen — dokumentiert und übergeben, frei von Lock-in, auf Ihrer eigenen Infrastruktur. Ich schule lieber Ihr Team, es zu betreiben und zu erweitern, als Ihnen eine Black Box zu hinterlassen, an die nur ich herankomme.',
       },
       {
         title: 'KI geht mit Evals live, nicht mit Bauchgefühl',
@@ -135,9 +135,9 @@ export const de: Content = {
           'Ein produktives KI-Feature oder MVP, ausgeliefert mit Tests, Evals und CI — ein Full-Stack-KI-Produkt, eine agentische Web-App, ein RAG-System oder ein Voice- bzw. Chat-Agent im echten Einsatz.',
       },
       {
-        duration: 'Laufender Retainer',
+        duration: 'Übergabe, dann optionale Unterstützung',
         outcome:
-          'Kontinuierliche Entwicklung, Evals und Architektur-Unterstützung über Ihre Roadmap, mit vereinbarter monatlicher Kapazität.',
+          'Jedes Projekt endet mit vollständiger Dokumentation und Schulung, sodass Ihr Team es besitzt und selbst wartet. Eine erfahrene Hand bleibt danach auf Wunsch verfügbar — nie als Voreinstellung.',
       },
     ],
     note:
@@ -182,6 +182,14 @@ export const de: Content = {
         body:
           'Ein Open-Source-Fork mit ~480 Commits über rund sieben Monate. Ich habe eine vollständige Voice-Schicht von Grund auf auf LiveKit/Pipecat gebaut, die Permission-UX neu gestaltet und CI/CD von null aufgesetzt. React Native/Expo im Frontend, Fastify und Python dahinter.',
         link: 'https://github.com/JakobGruen/happy',
+        linkLabel: 'Auf GitHub ansehen →',
+      },
+      {
+        title: 'green-wald.de',
+        sub: 'Open-Source · Genau diese Website',
+        body:
+          'Genau diese Website: ein zweisprachiger, privacy-first Static-Build auf Astro 5 — keine Cookies, kein Tracking, keine Drittanbieter-Requests, selbst gehostete Schriften. Gehärtet mit einer strikten Content-Security-Policy, einer typisierten DE/EN-Content-Schicht, die ein Auseinanderdriften der Sprachen verhindert, und durchgängig zugänglicher Progressive Enhancement. Open Source, von vorne bis hinten.',
+        link: 'https://github.com/JakobGruen/green-wald-site',
         linkLabel: 'Auf GitHub ansehen →',
       },
       {

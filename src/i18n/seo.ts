@@ -45,7 +45,7 @@ const jsonLdGraph = {
       serviceType: [
         'AI Audit and Roadmap',
         'AI Build Engagement',
-        'AI Advisory and Retainer',
+        'AI Handover and Enablement',
         'Voice AI development',
         'Conversational AI development',
         'Full-stack AI products',
