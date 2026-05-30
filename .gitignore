@@ -1,0 +1,22 @@
+# build output
+dist/
+.astro/
+
+# dependencies
+node_modules/
+
+# logs
+*.log
+npm-debug.log*
+
+# environment
+.env
+.env.production
+
+# os / editor
+.DS_Store
+.vscode/
+*.swp
+
+# planning scaffolding — contains internal (unpublished) pricing notes; not shipped
+.review/

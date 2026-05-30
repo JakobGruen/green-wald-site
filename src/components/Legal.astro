@@ -1,0 +1,57 @@
+---
+import { useTranslations, localizedHref, type Lang } from '../i18n/utils';
+import Nav from './Nav.astro';
+import Footer from './Footer.astro';
+import type { LegalDoc } from '../i18n/types';
+
+interface Props {
+  lang: Lang;
+  de: LegalDoc;
+  en: LegalDoc;
+  /** key of the *other* legal page to cross-link to */
+  other: { href: string; label: string };
+}
+const { lang, de, en, other } = Astro.props;
+const t = useTranslations(lang);
+const path = Astro.url.pathname;
+
+const homeLabel = lang === 'de' ? '← Startseite' : '← Home';
+const noteDe = 'Rechtlich verbindlich ist die deutsche Fassung. An English courtesy translation follows below.';
+---
+<Nav lang={lang} path={path} />
+
+<main id="main">
+  <article class="legal">
+    <div class="back">
+      <a href={localizedHref('/', lang)}>{homeLabel}</a>
+      <a href={other.href}>{other.label}</a>
+    </div>
+
+    <h1>{de.title}</h1>
+    <p class="note">{noteDe}</p>
+
+    <!-- German (authoritative) -->
+    <p class="section-label">Deutsch</p>
+    {de.intro && <p set:html={de.intro}></p>}
+    {de.sections.map((s) => (
+      <section style="border:none;padding:0;">
+        <h2>{s.heading}</h2>
+        {s.paragraphs.map((p) => <p set:html={p}></p>)}
+      </section>
+    ))}
+
+    <div class="divider"></div>
+
+    <!-- English (courtesy) -->
+    <p class="section-label">English (courtesy translation)</p>
+    {en.intro && <p set:html={en.intro}></p>}
+    {en.sections.map((s) => (
+      <section style="border:none;padding:0;">
+        <h2>{s.heading}</h2>
+        {s.paragraphs.map((p) => <p set:html={p}></p>)}
+      </section>
+    ))}
+  </article>
+</main>
+
+<Footer lang={lang} />

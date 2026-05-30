@@ -1,0 +1,55 @@
+<!doctype html>
+<!-- Source for the Open Graph share image. Rendered at 1200x630 and screenshotted
+     to /public/og-image.png. Not deployed. -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1200px; height: 630px; overflow: hidden; }
+  body {
+    font-family: 'Inter Variable', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    background: #0a0c0a;
+    color: #e6ece6;
+    position: relative;
+    background-image:
+      radial-gradient(60rem 36rem at 82% -10%, rgba(67,192,140,0.22), transparent 60%),
+      radial-gradient(48rem 36rem at 6% 110%, rgba(67,192,140,0.10), transparent 55%);
+  }
+  .grain { position: absolute; inset: 0; opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+  .pad { position: relative; padding: 84px 90px; height: 100%; display: flex; flex-direction: column; }
+  .top { display: flex; align-items: center; gap: 18px; }
+  .mark { width: 64px; height: 64px; border-radius: 16px; display: grid; place-items: center;
+    background: linear-gradient(145deg, #69d7a7, #2f9c72); color: #04120c; font-weight: 800; font-size: 26px;
+    font-family: ui-monospace, Menlo, monospace; }
+  .top .who { font-size: 26px; font-weight: 650; color: #f4f8f3; }
+  .eyebrow { font-family: ui-monospace, Menlo, monospace; font-size: 22px; letter-spacing: 6px;
+    text-transform: uppercase; color: #43c08c; margin-top: auto; }
+  h1 { font-size: 92px; line-height: 1.02; font-weight: 720; letter-spacing: -0.03em; color: #f4f8f3; margin-top: 14px; }
+  .sub { font-size: 34px; color: #b9c4bc; margin-top: 26px; max-width: 920px; line-height: 1.3; }
+  .foot { margin-top: auto; display: flex; align-items: center; justify-content: space-between; }
+  .stack { font-family: ui-monospace, Menlo, monospace; font-size: 22px; color: #a0afa4; letter-spacing: 1px; }
+  .domain { font-family: ui-monospace, Menlo, monospace; font-size: 24px; color: #43c08c; }
+  .bar { height: 5px; width: 120px; border-radius: 4px; background: linear-gradient(90deg, #2f9c72, #69d7a7); margin-top: 30px; }
+</style>
+</head>
+<body>
+  <div class="grain"></div>
+  <div class="pad">
+    <div class="top">
+      <span class="mark">JG</span>
+      <span class="who">Jakob Grünwald</span>
+    </div>
+    <div style="margin-top: 96px;">
+      <span class="eyebrow">Freelance AI Engineer</span>
+      <h1>Production Voice&nbsp;AI,<br/>agents &amp; full-stack<br/>that ship.</h1>
+      <div class="bar"></div>
+    </div>
+    <div class="foot">
+      <span class="stack">Voice AI · Agentic systems · Full-stack AI products</span>
+      <span class="domain">green-wald.de</span>
+    </div>
+  </div>
+</body>
+</html>

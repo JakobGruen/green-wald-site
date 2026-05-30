@@ -1,0 +1,17 @@
+---
+import Base from '../../layouts/Base.astro';
+import Legal from '../../components/Legal.astro';
+import { impressumDe, impressumEn } from '../../i18n/legal';
+import { useTranslations, localizedHref } from '../../i18n/utils';
+
+const lang = 'de';
+const t = useTranslations(lang);
+---
+<Base lang={lang} title={`Impressum — Jakob Grünwald`} description="Impressum / Anbieterkennzeichnung für green-wald.de.">
+  <Legal
+    lang={lang}
+    de={impressumDe}
+    en={impressumEn}
+    other={{ href: localizedHref('/datenschutz', lang), label: t.footer.datenschutz }}
+  />
+</Base>

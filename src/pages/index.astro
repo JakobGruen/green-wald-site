@@ -1,0 +1,20 @@
+---
+import Base from '../layouts/Base.astro';
+import Home from '../components/Home.astro';
+import { useTranslations } from '../i18n/utils';
+import { seo } from '../i18n/seo';
+
+const lang = 'en';
+const t = useTranslations(lang);
+---
+<Base
+  lang={lang}
+  title={t.meta.title}
+  description={t.meta.description}
+  ogTitle={seo.ogTitleEn}
+  ogDescription={seo.ogDescEn}
+  keywords={seo.keywordsEn}
+  jsonLd={seo.jsonLd}
+>
+  <Home lang={lang} />
+</Base>

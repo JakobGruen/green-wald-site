@@ -1,0 +1,74 @@
+---
+import { useTranslations, alternatePath, localizedHref, type Lang } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+  path: string;
+}
+const { lang, path } = Astro.props;
+const t = useTranslations(lang);
+const home = localizedHref('/', lang);
+const enHref = alternatePath(path, 'en');
+const deHref = alternatePath(path, 'de');
+const email = 'jakob@gruenwald-bs.de';
+const menuLabel = lang === 'de' ? 'Menü' : 'Menu';
+const deSwitchLabel = 'Auf Deutsch wechseln';
+const enSwitchLabel = 'Switch to English';
+---
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="brand" href={home} aria-label={lang === 'de' ? 'Jakob Grünwald — Startseite' : 'Jakob Grünwald — home'}>
+      <span class="mark">JG</span>
+      <span>Jakob Grünwald</span>
+    </a>
+
+    <!-- Mobile disclosure toggle (APG pattern). Hidden on desktop via CSS.
+         aria-expanded is the single source of truth; site.js flips it. -->
+    <button
+      type="button"
+      class="nav-toggle"
+      id="nav-toggle"
+      aria-expanded="false"
+      aria-controls="primary-nav"
+      aria-label={menuLabel}
+    >
+      <svg class="nav-toggle-icon" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path class="bar bar-top" d="M3 6h18" />
+        <path class="bar bar-mid" d="M3 12h18" />
+        <path class="bar bar-bot" d="M3 18h18" />
+      </svg>
+      <span class="nav-toggle-text">{menuLabel}</span>
+    </button>
+
+    <nav class="nav-links" id="primary-nav" aria-label={lang === 'de' ? 'Hauptnavigation' : 'Main'}>
+      <a class="navlink" href="#services">{t.nav.services}</a>
+      <a class="navlink" href="#work">{t.nav.work}</a>
+      <a class="navlink" href="#process">{t.nav.process}</a>
+      <a class="navlink" href="#contact">{t.nav.contact}</a>
+      <!-- CTA repeated inside the menu so it's reachable on mobile -->
+      <a class="btn btn-primary navlink-cta" href={`mailto:${email}`}>{t.nav.cta}</a>
+    </nav>
+
+    <div class="nav-tools">
+      <nav class="langswitch" aria-label={lang === 'de' ? 'Sprache' : 'Language'}>
+        <a
+          href={enHref}
+          hreflang="en"
+          lang="en"
+          data-setlang="en"
+          aria-current={lang === 'en' ? 'page' : undefined}
+          aria-label={lang === 'en' ? undefined : enSwitchLabel}
+        >EN</a>
+        <a
+          href={deHref}
+          hreflang="de"
+          lang="de"
+          data-setlang="de"
+          aria-current={lang === 'de' ? 'page' : undefined}
+          aria-label={lang === 'de' ? undefined : deSwitchLabel}
+        >DE</a>
+      </nav>
+      <a class="btn btn-primary nav-cta-desktop" href={`mailto:${email}`}>{t.nav.cta}</a>
+    </div>
+  </div>
+</header>

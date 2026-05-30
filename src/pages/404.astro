@@ -1,0 +1,24 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import { seo } from '../i18n/seo';
+
+const lang = 'en';
+const nf = seo.notFoundEn;
+const nfDe = seo.notFoundDe;
+---
+<Base lang={lang} title={`${nf.title} — Jakob Grünwald`} description={nf.body}>
+  <Nav lang={lang} path="/" />
+  <main id="main" class="wrap" style="min-height:52vh;display:flex;flex-direction:column;justify-content:center;padding-block:5rem;">
+    <span class="eyebrow">404</span>
+    <h1 style="font-size:clamp(2rem,6vw,3rem);margin-top:0.5rem;">{nf.title}</h1>
+    <p style="margin-top:1rem;max-width:46ch;">{nf.body}</p>
+    <p style="margin-top:0.4rem;max-width:46ch;color:var(--faint);">{nfDe.body}</p>
+    <div class="cta-row" style="margin-top:1.8rem;display:flex;gap:0.8rem;flex-wrap:wrap;">
+      <a class="btn btn-primary" href="/">{nf.backLabel}</a>
+      <a class="btn btn-ghost" href="/de/">{nfDe.backLabel}</a>
+    </div>
+  </main>
+  <Footer lang={lang} />
+</Base>

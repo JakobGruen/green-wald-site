@@ -1,0 +1,43 @@
+---
+import '../styles/global.css';
+import Head from '../components/Head.astro';
+import type { Lang } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+  title: string;
+  description: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  keywords?: string;
+  jsonLd?: string;
+}
+const { lang, title, description, ogTitle, ogDescription, keywords, jsonLd } = Astro.props;
+const path = Astro.url.pathname;
+const skip = lang === 'de' ? 'Zum Inhalt springen' : 'Skip to content';
+---
+<!doctype html>
+<html lang={lang} class="no-js">
+  <head>
+    <Head
+      lang={lang}
+      title={title}
+      description={description}
+      path={path}
+      ogTitle={ogTitle}
+      ogDescription={ogDescription}
+      keywords={keywords}
+      jsonLd={jsonLd}
+    />
+  </head>
+  <body>
+    <div class="progress" id="progress" aria-hidden="true"></div>
+    <a class="skip-link" href="#main">{skip}</a>
+    <slot />
+
+    <!-- Client enhancements live in /public/site.js (same-origin) so the strict
+         CSP (script-src 'self') allows them without inline hashes. Deferred so
+         it never blocks render; content is fully usable without it. -->
+    <script type="module" src="/site.js"></script>
+  </body>
+</html>

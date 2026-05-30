@@ -1,0 +1,227 @@
+---
+import { useTranslations, requestMailto, type Lang } from '../i18n/utils';
+import Nav from './Nav.astro';
+import Footer from './Footer.astro';
+import Diagram from './Diagram.astro';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const path = Astro.url.pathname;
+
+const email = 'jakob@gruenwald-bs.de';
+const github = 'https://github.com/JakobGruen';
+const linkedin = 'https://www.linkedin.com/in/jakob-gr%C3%BCnwald-452520245';
+const requestHref = requestMailto(lang);
+const keywordTail = lang === 'de' ? ' — Voice-KI, Agenten & Full-Stack-KI' : ' — Voice AI, agents & full-stack AI';
+const portraitAlt = lang === 'de' ? 'Porträt von Jakob Grünwald' : 'Portrait of Jakob Grünwald';
+---
+<Nav lang={lang} path={path} />
+
+<main id="main">
+  <!-- HERO -->
+  <section class="hero wide">
+    <div class="hero-grid">
+      <div>
+        <p class="eyebrow">{t.hero.name}</p>
+        <h1>{t.hero.role}<span class="visually-hidden">{keywordTail}</span></h1>
+        <p class="tagline">{t.hero.tagline}</p>
+        <p class="meta"><span class="dot" aria-hidden="true"></span>{t.hero.location}</p>
+        <p class="lede">{t.hero.lede}</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href={requestHref}>{t.hero.ctaPrimary}</a>
+          <a class="btn btn-ghost" href="#process">{t.hero.ctaSecondary}</a>
+        </div>
+      </div>
+      <div class="portrait">
+        <picture>
+          <source srcset="/portrait.webp" type="image/webp" />
+          <img src="/portrait.jpg" alt={portraitAlt} width="900" height="900" loading="eager" decoding="async" />
+        </picture>
+      </div>
+    </div>
+
+    <!-- METRIC BAND -->
+    <div class="metrics mt-2 reveal">
+      {t.metrics.map((m) => (
+        <div class="metric">
+          <div class="val">{m.value}</div>
+          <div class="lab">{m.label}</div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="wide">
+    <div class="section-head reveal">
+      <span class="eyebrow">{t.services.label}</span>
+      <h2>{t.services.intro}</h2>
+    </div>
+    <div class="grid cols-3">
+      {t.services.tiers.map((s, i) => (
+        <div class="card svc reveal">
+          <span class="num">{String(i + 1).padStart(2, '0')}</span>
+          <h3>{s.name}</h3>
+          <p class="forwho">{s.forWho}</p>
+          <ul>
+            {s.deliverables.map((d) => <li>{d}</li>)}
+          </ul>
+          <p class="outcome">{s.outcome}</p>
+          <div class="meta-row">
+            <span class="tag">{s.engagement}</span>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- ESTIMATES -->
+  <section id="estimates" class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">{t.estimates.label}</span>
+      <h2>{t.estimates.intro}</h2>
+    </div>
+    <div class="reveal">
+      {t.estimates.shapes.map((sh) => (
+        <div class="shape">
+          <div class="dur">{sh.duration}</div>
+          <div class="out">{sh.outcome}</div>
+        </div>
+      ))}
+      <p class="est-note">{t.estimates.note}</p>
+    </div>
+  </section>
+
+  <!-- WORK: sectors + diagram + projects -->
+  <section id="work" class="wide">
+    <div class="section-head reveal">
+      <span class="eyebrow">{t.sectors.label}</span>
+      <h2>{t.sectors.intro}</h2>
+    </div>
+    <div class="sector-tiles reveal">
+      {t.sectors.tiles.map((tile) => (
+        <div class="sector">
+          <div class="s">{tile.sector}</div>
+          <div class="r">{tile.region}</div>
+        </div>
+      ))}
+    </div>
+
+    <div class="section-head reveal" style="margin-top:2.8rem;">
+      <span class="eyebrow">{t.diagram.label}</span>
+    </div>
+    <Diagram caption={t.diagram.caption} a11yDesc={t.diagram.a11yDesc} nodes={t.diagram.nodes} />
+
+    <div class="section-head reveal" style="margin-top:2.8rem;">
+      <span class="eyebrow">{t.projects.label}</span>
+    </div>
+    <div class="proj-group">
+      <div class="proj-grouplabel reveal">{t.projects.clientLabel}</div>
+      <div class="grid cols-3">
+        {t.projects.client.map((p) => (
+          <div class="card proj reveal">
+            <h3>{p.title}</h3>
+            <p class="sub">{p.sub}</p>
+            <p class="body">{p.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+    <div class="proj-group">
+      <div class="proj-grouplabel reveal">{t.projects.personalLabel}</div>
+      <div class="grid cols-3">
+        {t.projects.personal.map((p) => (
+          <div class="card proj reveal">
+            <h3>{p.title}</h3>
+            <p class="sub">{p.sub}</p>
+            <p class="body">{p.body} {p.link && (<a href={p.link} target="_blank" rel="noopener">{p.linkLabel ?? '→'}</a>)}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS / HOW I WORK -->
+  <section id="process" class="wide">
+    <div class="section-head reveal">
+      <span class="eyebrow">{t.process.label}</span>
+      <h2>{t.process.intro}</h2>
+    </div>
+    <div class="grid cols-2">
+      {t.process.promises.map((pr) => (
+        <div class="promise card reveal">
+          <span class="chk" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </span>
+          <div>
+            <h3>{pr.title}</h3>
+            <p>{pr.detail}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- BACKGROUND -->
+  <section id="background" class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">{t.background.label}</span>
+    </div>
+    <p class="reveal">{t.background.body}</p>
+    <ul class="clean reveal mt-2" set:html={t.background.bullets.map((b) => `<li>${b}</li>`).join('')}></ul>
+  </section>
+
+  <!-- TOOLBOX -->
+  <section id="toolbox" class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">{t.toolbox.label}</span>
+    </div>
+    <div class="skills">
+      {t.toolbox.groups.map((g) => (
+        <div class="skillrow reveal">
+          <div class="label">{g.label}</div>
+          <div class="chips">
+            {g.chips.map((c) => <span class="chip">{c}</span>)}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- LANGUAGES -->
+  <section id="languages" class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">{t.languages.label}</span>
+    </div>
+    <div class="langs reveal">
+      {t.languages.items.map((l) => (
+        <span><b>{l.name}</b> <i>{l.level}</i></span>
+      ))}
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="wrap">
+    <div class="contact-card reveal">
+      <div class="avail"><span class="dot" aria-hidden="true"></span>{t.contact.availability}</div>
+      <div class="section-head" style="margin-bottom:0.8rem;">
+        <h2>{t.contact.label}</h2>
+      </div>
+      <p>{t.contact.body}</p>
+      <p class="email-row">
+        <a class="email-addr" href={`mailto:${email}`}>{email}</a>
+        <button type="button" class="copy-email" data-copy={email} data-copy-label={t.contact.copyLabel} data-copied-label={t.contact.copiedLabel} aria-label={t.contact.copyLabel}>{t.contact.copyLabel}</button>
+      </p>
+      <div class="contact-links">
+        <a class="btn btn-primary" href={requestHref}>{t.contact.emailLabel}</a>
+        <a class="btn btn-ghost" href={github} target="_blank" rel="noopener">{t.contact.githubLabel}</a>
+        <a class="btn btn-ghost" href={linkedin} target="_blank" rel="noopener">{t.contact.linkedinLabel}</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<Footer lang={lang} />

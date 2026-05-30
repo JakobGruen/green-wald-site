@@ -1,0 +1,20 @@
+---
+import { useTranslations, localizedHref, type Lang } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const year = new Date().getFullYear();
+---
+<footer class="site">
+  <div class="foot-inner">
+    <span class="copy">© {year} {t.footer.rights}</span>
+    <span class="priv">{t.footer.privacyLine}</span>
+    <nav class="foot-links" aria-label={lang === 'de' ? 'Rechtliches' : 'Legal'}>
+      <a href={localizedHref('/impressum', lang)}>{t.footer.impressum}</a>
+      <a href={localizedHref('/datenschutz', lang)}>{t.footer.datenschutz}</a>
+    </nav>
+  </div>
+</footer>
